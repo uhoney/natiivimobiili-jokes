@@ -14,6 +14,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
@@ -60,11 +61,16 @@ fun JokesApp() {
 
 
     NavHost(navController = navController, startDestination = "main") {
-        composable("main") { MainScreen(navController, stringResource(R.string.nav_title_main)) }
-        composable("settings") {
-            SettingsScreen(
+        composable("main") {
+            MainScreen(
                 navController,
-                stringResource(R.string.nav_title_settings)
+                stringResource(R.string.nav_title_main)
+            )
+        }
+        composable("about") {
+            AboutScreen(
+                navController,
+                stringResource(R.string.nav_title_about)
             )
         }
     }

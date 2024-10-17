@@ -1,6 +1,8 @@
 package com.example.natiivimobiili_jokes.view
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -23,16 +25,22 @@ fun CustomTAB(navController: NavController, screenTitle: String) {
     TopAppBar(
         title = { Text(screenTitle) },
         colors = TopAppBarDefaults.topAppBarColors(MaterialTheme.colorScheme.primaryContainer),
+        navigationIcon = {
+            if (currentRoute == "about") {
+                IconButton(onClick = { navController.popBackStack() }) {
+                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                }
+            }
+        },
         actions = {
-            IconButton(
-                onClick = {
-                    if (currentRoute != "settings") {
-                        navController.navigate("settings")
-                    }
-                },
-                enabled = currentRoute != "settings"
-            ) {
-                Icon(Icons.Default.Settings, contentDescription = "Settings screen")
+            if (currentRoute != "about") {
+                IconButton(
+                    onClick = {
+                        navController.navigate("about")
+                    })
+                {
+                    Icon(Icons.Default.Info, contentDescription = "About screen")
+                }
             }
         }
     )
