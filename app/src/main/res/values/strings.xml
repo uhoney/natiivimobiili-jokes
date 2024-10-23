@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">natiivimobiili-jokes</string>
+    <string name="nav_title_main">Jokes demo</string>
+    <string name="nav_title_about">About</string>
+    <string name="about_info">\nThis demo was created as a part of a school course on Kotlin (android studio)</string>
+    <string name="button_fetch_joke">fetch joke</string>
+</resources>
